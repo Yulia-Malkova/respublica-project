@@ -1,10 +1,10 @@
 <p align="center">
-<a href="https://www.wildberries.ru/"> <img width=50%" src="media/wildberries-logo.png"> </a></h1>
+<a href="https://www.respublica.ru/"> <img width=50%" src="media/logo.png"> </a></h1>
 <p align="center">
 
-# <p align="center"> Проект по автоматизации тестовых сценариев для  магазина Respublica <p align="center">
+# <p align="center"> Проект по автоматизации тестовых API сценариев для  магазина Respublica <p align="center">
 
-## ![##BC13A2](https://placehold.co/15x15/BC13A2/BC13A2.png) Использованный стек технологий
+## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Использованный стек технологий
 <p align="center">
 <img width="6%" title="IntelliJ IDEA" src="media/Intelij_IDEA.svg">
 <img width="6%" title="Java" src="media/Java.svg">
@@ -34,7 +34,7 @@
 * Логи браузерной консоли;
 * Видео выполнения автотеста.
 
-## ![##BC13A2](https://placehold.co/15x15/BC13A2/BC13A2.png) Запуск автотестов
+## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Запуск автотестов
 
 ### Запуск тестов из терминала
 
@@ -70,12 +70,12 @@ ${TEST_JOB}
 * <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты. По умолчанию - <code>1920x1080</code>.
 * <code>WEB_DRIVER</code> – адрес удаленного сервера, на котором будут запускаться тесты.
 
-## ![##BC13A2](https://placehold.co/15x15/BC13A2/BC13A2.png) Сборка в [Jenkins](https://jenkins.autotests.cloud/job/021-Yulia_Malkova-WB_project/)
+## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Сборка в [Jenkins](https://jenkins.autotests.cloud/job/021-Yulia_Malkova-WB_project/)
 <p align="center">
 <img title="Jenkins Build" src="media/ jenkins.png">
 </p>
 
-## ![##BC13A2](https://placehold.co/15x15/BC13A2/BC13A2.png) Пример [Allure-отчета](https://jenkins.autotests.cloud/job/021-Yulia_Malkova-WB_project/13/allure/)
+## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Пример [Allure-отчета](https://jenkins.autotests.cloud/job/021-Yulia_Malkova-WB_project/13/allure/)
 ### Overview
 
 <p align="center">
@@ -88,7 +88,7 @@ ${TEST_JOB}
 <img title="Test Results in Alure" src="media/allure_test_result.png">
 </p>
 
-## ![##BC13A2](https://placehold.co/15x15/BC13A2/BC13A2.png) Интеграция с [Allure TestOps](https://allure.autotests.cloud/project/3682/dashboards)
+## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Интеграция с [Allure TestOps](https://allure.autotests.cloud/project/3682/dashboards)
 
 Выполнена интеграция сборки <code>Jenkins</code> с <code>Allure TestOps</code>.
 Результат выполнения автотестов отображается в <code>Allure TestOps</code>
@@ -98,7 +98,7 @@ ${TEST_JOB}
 <img title="Allure TestOps DashBoard" src="media/allure_test_ops.png">
 </p>
 
-## ![##BC13A2](https://placehold.co/15x15/BC13A2/BC13A2.png) Интеграция с [Jira](https://jira.autotests.cloud/browse/HOMEWORK-893)
+## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Интеграция с [Jira](https://jira.autotests.cloud/browse/HOMEWORK-893)
 
 Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>, в тикете отображается информация, какие тест-кейсы были написаны в рамках задачи и результат их прогона.
 
@@ -106,7 +106,7 @@ ${TEST_JOB}
 <img title="Jira Task" src="media/jira_integration.png">
 </p>
 
-## ![##BC13A2](https://placehold.co/15x15/BC13A2/BC13A2.png) Уведомления в Telegram с использованием бота
+## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Уведомления в Telegram с использованием бота
 
 После завершения сборки, бот созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
 
@@ -114,4 +114,3 @@ ${TEST_JOB}
 <img width="70%" title="Telegram Notifications" src="media/telegram_bot.png">
 </p>
 
-## ![##BC13A2](https://placehold.co/15x15/BC13A2/BC13A2.png) Видео примера запуска тестов в Selenoid
