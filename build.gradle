@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "8.3"
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group 'ru.respublica'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+            'io.rest-assured:rest-assured:5.3.1',
+            'org.junit.jupiter:junit-jupiter:5.9.3',
+            "io.rest-assured:json-schema-validator:5.3.1",
+            'org.slf4j:slf4j-simple:2.0.7',
+            'io.qameta.allure:allure-selenide:2.23.0',
+            "io.qameta.allure:allure-rest-assured:2.23.0",
+            'org.aeonbits.owner:owner:1.0.4',
+            'com.github.javafaker:javafaker:1.0.2'
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
+task basket_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("basket")
+    }
+}
+
+task catalog_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("catalog")
+    }
+}
+task login_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("login")
+    }
+}
+task account_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("account")
+    }
+}
