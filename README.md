@@ -6,17 +6,17 @@
 
 ## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Использованный стек технологий
 <p align="center">
-<img width="6%" title="IntelliJ IDEA" src="media/Intelij_IDEA.svg">
-<img width="6%" title="Java" src="media/Java.svg">
- <img width="5%" title="Rest Assured" src="media/rest_assured.png">
-<img width="6%" title="Allure Report" src="media/Allure_Report.svg">
-<img width="5%" title="Allure TestOps" src="media/AllureTestOps.svg">
-<img width="6%" title="Gradle" src="media/Gradle.svg">
-<img width="6%" title="JUnit5" src="media/JUnit5.svg">
-<img width="6%" title="GitHub" src="media/GitHub (1).svg">
-<img width="6%" title="Jenkins" src="media/Jenkins.svg">
-<img width="6%" title="Telegram" src="media/Telegram (1).svg">
-<img width="5%" title="Jira" src="media/Jira.svg">
+<a href="https://www.jetbrains.com/idea/"><img width="6%" title="IntelliJ IDEA" src="media/Intelij_IDEA.svg"></a>
+<a href="https://www.java.com/"><img width="6%" title="Java" src="media/Java.svg"></a>
+<a href="https://rest-assured.io/"><img width="5%" title="Rest Assured" src="media/rest_assured.png"></a>
+<a href="https://github.com/allure-framework"><img width="6%" title="Allure Report" src="media/Allure_Report.svg"></a>
+<a href="https://qameta.io/"><img width="5%" title="Allure TestOps" src="media/AllureTestOps.svg"></a>
+<a href="https://gradle.org/"><img width="6%" title="Gradle" src="media/Gradle.svg"></a>
+<a href="https://junit.org/junit5/"><img width="6%" title="JUnit5" src="media/JUnit5.svg"></a>
+<a href="https://github.com/"><img width="6%" title="GitHub" src="media/GitHub (1).svg"></a>
+<a href="https://www.jenkins.io/"><img width="6%" title="Jenkins" src="media/Jenkins.svg"></a>
+<a href="https://web.telegram.org/"><img width="6%" title="Telegram" src="media/Telegram (1).svg"></a>
+<a href="https://www.atlassian.com/software/jira/"><img width="5%" title="Jira" src="media/Jira.svg"></a>
 </p>
 
 - В данном проекте автотесты написаны на языке <code>Java</code> с использованием фреймворков <code>Rest Assured</code> и <code>JUnit 5</code>.
