@@ -60,7 +60,7 @@ node1([Test Suites]) --> node8([Запуск тестов, связанных с
 <img title="Jenkins Build" src="media/jenkins.png">
 </p>
 
-## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Пример [Allure-отчета](https://jenkins.autotests.cloud/job/021-Yulia_Malkova-respublica_project/4/allure/)
+## ![##46C3D3](https://placehold.co/15x15/46C3D3/46C3D3.png) Пример [Allure-отчета](https://jenkins.autotests.cloud/job/021-Yulia_Malkova-respublica_project/allure/)
 ### Overview
 
 <p align="center">
