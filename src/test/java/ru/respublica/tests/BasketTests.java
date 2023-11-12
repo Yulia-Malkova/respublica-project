@@ -21,13 +21,13 @@ import static ru.respublica.specs.BasicSpec.requestSpec;
 import static ru.respublica.specs.BasicSpec.responseSpec200;
 import static ru.respublica.tests.TestBase.authConfig;
 
-@Feature("Корзина")
 public class BasketTests {
 
     Variables variables = new Variables();
 
     @Test
     @Tag("basket")
+    @Feature("Корзина")
     @Owner("jmalkova")
     @DisplayName("Добавление товара в корзину")
     void articleAddingTest() {
@@ -61,6 +61,7 @@ public class BasketTests {
 
     @Test
     @Tag("basket")
+    @Feature("Корзина")
     @Owner("jmalkova")
     @DisplayName("Удаление всех товаров из корзины")
     void articlesDeletionTest() {

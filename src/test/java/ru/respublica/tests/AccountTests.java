@@ -19,15 +19,14 @@ import static ru.respublica.specs.BasicSpec.requestSpec;
 import static ru.respublica.specs.BasicSpec.responseSpec200;
 import static ru.respublica.tests.TestBase.authConfig;
 
-@Feature("Личный кабинет")
 public class AccountTests {
 
     Variables variables = new Variables();
 
     @Test
     @Tag("account")
+    @Feature("Личный кабинет")
     @Owner("jmalkova")
-
     @DisplayName("Изменение данных пользователя в личном кабинете")
     void userInformationUpdateTest() {
 

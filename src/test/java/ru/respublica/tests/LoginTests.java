@@ -16,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.respublica.specs.BasicSpec.*;
 import static ru.respublica.tests.TestBase.authConfig;
 
-@Feature("Авторизация")
 public class LoginTests {
     Variables variables = new Variables();
 
     @Test
     @Tag("login")
+    @Feature("Авторизация")
     @Owner("jmalkova")
     @DisplayName("Авторизация существующего пользователя с верным паролем")
     void successfulAuthorizationTest() {
@@ -49,6 +49,7 @@ public class LoginTests {
 
     @Test
     @Tag("login")
+    @Feature("Авторизация")
     @Owner("jmalkova")
     @DisplayName("Ошибка при авторизации с некорректными данными")
     void authorizationErrorTest() {

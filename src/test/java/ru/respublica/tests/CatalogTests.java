@@ -17,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static ru.respublica.specs.BasicSpec.requestSpec;
 import static ru.respublica.specs.BasicSpec.responseSpec200;
 
-@Feature("Каталог")
 public class CatalogTests {
 
     Variables variables = new Variables();
 
     @Test
     @Tag("catalog")
+    @Feature("Каталог")
     @Owner("jmalkova")
     @DisplayName("Поиск товаров в каталоге")
     void catalogSearchTest() {
@@ -45,6 +45,7 @@ public class CatalogTests {
     }
     @ParameterizedTest(name = "Получение товаров из раздела {0} каталога")
     @Tag("catalog")
+    @Feature("Каталог")
     @Owner("jmalkova")
     @CsvFileSource(resources = "/sections.csv")
     void catalogTest(String sectionName, String sectionPath) {
