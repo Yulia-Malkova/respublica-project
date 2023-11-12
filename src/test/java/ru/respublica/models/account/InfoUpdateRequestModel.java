@@ -1,4 +1,4 @@
-package ru.respublica.models.login;
+package ru.respublica.models.account;
 
 import lombok.Data;
 

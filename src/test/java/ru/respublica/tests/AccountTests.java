@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import ru.respublica.models.authorization.AuthorizationRequestModel;
 import ru.respublica.models.authorization.UserInfoResponseModel;
 import ru.respublica.models.authorization.UserRequestModel;
-import ru.respublica.models.login.InfoUpdateRequestModel;
-import ru.respublica.models.login.UserInfoModel;
+import ru.respublica.models.account.InfoUpdateRequestModel;
+import ru.respublica.models.account.UserInfoModel;
 import ru.respublica.utils.Variables;
 
 import static io.qameta.allure.Allure.step;
