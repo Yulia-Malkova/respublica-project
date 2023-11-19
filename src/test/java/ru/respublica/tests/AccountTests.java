@@ -5,15 +5,17 @@ import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import ru.respublica.models.account.InfoUpdateRequestModel;
+import ru.respublica.models.account.UserInfoModel;
 import ru.respublica.models.authorization.AuthorizationRequestModel;
 import ru.respublica.models.authorization.UserInfoResponseModel;
 import ru.respublica.models.authorization.UserRequestModel;
-import ru.respublica.models.account.InfoUpdateRequestModel;
-import ru.respublica.models.account.UserInfoModel;
+import ru.respublica.utils.Endpoints;
 import ru.respublica.utils.Variables;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.respublica.specs.BasicSpec.requestSpec;
 import static ru.respublica.specs.BasicSpec.responseSpec200;
@@ -40,7 +42,7 @@ public class AccountTests {
                 given(requestSpec)
                         .body(authInfo)
                         .when()
-                        .post("/users/login")
+                        .post(Endpoints.LOGIN.getName())
                         .then()
                         .spec(responseSpec200)
                         .extract().as(UserInfoResponseModel.class));
@@ -56,15 +58,18 @@ public class AccountTests {
                         .header("Jwt-Auth-Token", loginResponse.getToken())
                         .body(infoUpdate)
                         .when()
-                        .post("/account/update")
+                        .post(Endpoints.ACCOUNT_UPDATE.getName())
                         .then()
                         .spec(responseSpec200)
                         .extract().as(UserInfoResponseModel.class));
 
-        step("Проверить ответ", () -> {
-            assertEquals(true, userInfoResponse.isSuccess());
-            assertEquals(variables.randomFirstName, userInfoResponse.getUser().getData().getAttributes().getFirstName());
-            assertEquals(variables.randomLastName, userInfoResponse.getUser().getData().getAttributes().getLastName());
-        });
+        step("Проверить ответ", () ->
+                assertAll(
+                        "Проверка значений для isSuccess, firstName, lastName в полученном ответе",
+                        () -> assertEquals(true, userInfoResponse.isSuccess()),
+                        () -> assertEquals(variables.randomFirstName, userInfoResponse.getUser().getData().getAttributes().getFirstName()),
+                        () -> assertEquals(variables.randomLastName, userInfoResponse.getUser().getData().getAttributes().getLastName())
+                )
+        );
     }
 }

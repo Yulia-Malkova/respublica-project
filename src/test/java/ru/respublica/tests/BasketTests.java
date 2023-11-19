@@ -12,10 +12,12 @@ import ru.respublica.models.basket.AddingToBasketRequestModel;
 import ru.respublica.models.basket.AddingToBasketResponseModel;
 import ru.respublica.models.basket.DeletionResponseModel;
 import ru.respublica.models.basket.ItemRequestModel;
+import ru.respublica.utils.Endpoints;
 import ru.respublica.utils.Variables;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.respublica.specs.BasicSpec.requestSpec;
 import static ru.respublica.specs.BasicSpec.responseSpec200;
@@ -38,9 +40,22 @@ public class BasketTests {
         authInfo.getUser().setEmail(authConfig.login());
         authInfo.getUser().setPassword(authConfig.password());
 
-        UserInfoResponseModel loginResponse = step("Отправить POST запрос для авторизации пользователя", () -> given(requestSpec).body(authInfo).when().post("/users/login").then().spec(responseSpec200).extract().as(UserInfoResponseModel.class));
+        UserInfoResponseModel loginResponse = step("Отправить POST запрос для авторизации пользователя", () ->
+                given(requestSpec)
+                        .body(authInfo)
+                        .when()
+                        .post(Endpoints.LOGIN.getName())
+                        .then().spec(responseSpec200)
+                        .extract().as(UserInfoResponseModel.class));
 
-        DeletionResponseModel deletionResponse = step("Отправить POST запрос для удаления книг из корзины", () -> given(requestSpec).header("Jwt-Auth-Token", loginResponse.getToken()).when().post("/cart/clear").then().spec(responseSpec200).extract().as(DeletionResponseModel.class));
+        DeletionResponseModel deletionResponse = step("Отправить POST запрос для удаления книг из корзины", () ->
+                given(requestSpec)
+                        .header("Jwt-Auth-Token", loginResponse.getToken())
+                        .when()
+                        .post(Endpoints.CART_CLEAR.getName())
+                        .then()
+                        .spec(responseSpec200)
+                        .extract().as(DeletionResponseModel.class));
 
         AddingToBasketRequestModel addRequest = new AddingToBasketRequestModel();
         ItemRequestModel itemRequestModel = new ItemRequestModel();
@@ -49,14 +64,24 @@ public class BasketTests {
         itemRequestModel.setQuantity(variables.randomQuantity);
         itemRequestModel.setUpdate(true);
 
-        AddingToBasketResponseModel addResponse = step("Отправить POST запрос для добавления случайного товара в корзину", () -> given(requestSpec).body(addRequest).when().post("/cart/add_item").then().spec(responseSpec200).extract().as(AddingToBasketResponseModel.class));
-        step("Проверить ответ", () -> {
-            assertEquals(true, addResponse.isSuccess());
-            assertEquals("Товар добавлен", addResponse.getMessage());
-            assertEquals(variables.randomArticle, addResponse.getCart().getItems().get(0).getItem().getData().getId());
-            assertEquals(variables.articlePrice, addResponse.getCart().getItems().get(0).getPrice());
-            assertEquals(variables.randomQuantity, addResponse.getCart().getItems().get(0).getQuantity());
-        });
+        AddingToBasketResponseModel addResponse = step("Отправить POST запрос для добавления случайного товара в корзину", () ->
+                given(requestSpec)
+                        .body(addRequest)
+                        .when()
+                        .post(Endpoints.CART_ADD.getName())
+                        .then()
+                        .spec(responseSpec200)
+                        .extract().as(AddingToBasketResponseModel.class));
+        step("Проверить ответ", () ->
+                assertAll(
+                        "Проверка значений для isSuccess, message, id, price, quantity в полученном ответе",
+                        () -> assertEquals(true, addResponse.isSuccess()),
+                        () -> assertEquals("Товар добавлен", addResponse.getMessage()),
+                        () -> assertEquals(variables.randomArticle, addResponse.getCart().getItems().get(0).getItem().getData().getId()),
+                        () -> assertEquals(variables.articlePrice, addResponse.getCart().getItems().get(0).getPrice()),
+                        () -> assertEquals(variables.randomQuantity, addResponse.getCart().getItems().get(0).getQuantity())
+                )
+        );
     }
 
     @Test
@@ -72,13 +97,30 @@ public class BasketTests {
         authInfo.getUser().setEmail(authConfig.login());
         authInfo.getUser().setPassword(authConfig.password());
 
-        UserInfoResponseModel loginResponse = step("Отправить POST запрос для авторизации пользователя", () -> given(requestSpec).body(authInfo).when().post("/users/login").then().spec(responseSpec200).extract().as(UserInfoResponseModel.class));
+        UserInfoResponseModel loginResponse = step("Отправить POST запрос для авторизации пользователя", () ->
+                given(requestSpec)
+                        .body(authInfo)
+                        .when()
+                        .post(Endpoints.LOGIN.getName())
+                        .then()
+                        .spec(responseSpec200)
+                        .extract().as(UserInfoResponseModel.class));
 
-        DeletionResponseModel deletionResponse = step("Отправить POST запрос для удаления книг из корзины", () -> given(requestSpec).header("Jwt-Auth-Token", loginResponse.getToken()).when().post("/cart/clear").then().spec(responseSpec200).extract().as(DeletionResponseModel.class));
+        DeletionResponseModel deletionResponse = step("Отправить POST запрос для удаления книг из корзины", () ->
+                given(requestSpec)
+                        .header("Jwt-Auth-Token", loginResponse.getToken())
+                        .when()
+                        .post(Endpoints.CART_CLEAR.getName())
+                        .then()
+                        .spec(responseSpec200)
+                        .extract().as(DeletionResponseModel.class));
 
-        step("Проверить ответ", () -> {
-            assertEquals(true, deletionResponse.isSuccess());
-            assertEquals("Корзина очищена", deletionResponse.getMessage());
-        });
+        step("Проверить ответ", () ->
+                assertAll(
+                        "Проверка значений для isSuccess, message в полученном ответе",
+                        () -> assertEquals(true, deletionResponse.isSuccess()),
+                        () -> assertEquals("Корзина очищена", deletionResponse.getMessage())
+                )
+        );
     }
 }
